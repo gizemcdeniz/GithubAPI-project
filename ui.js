@@ -21,7 +21,7 @@ class UI {
                          <hr>
                          <div id="fullName"><strong> ${user.name}</strong></div>
                          <hr>
-                         <div id="bio">${user.bio ? null : "Bio Not Found"}</div>
+                         <div id="bio">${user.bio ? user.bio : "Bio Not Found"}</div>
                         </div>
                       <div class="col-md-8">
                             <button class="btn btn-secondary">
@@ -40,11 +40,11 @@ class UI {
                                     
                                 </li>
                                 <li class="list-group-item borderzero">
-                                    <img src="images/location.png" width="30px"> <span id = "location">${user.location ? null : "Location Not Found"}</a>
+                                    <img src="images/location.png" width="30px"> <span id = "location">${user.location ? user.location : "Location Not Found"}</a>
                                     
                                 </li>
                                 <li class="list-group-item borderzero">
-                                    <img src="images/mail.png" width="30px"> <span id="mail">${user.email ? null : "Mail Not Found"}</span>
+                                    <img src="images/mail.png" width="30px"> <span id="mail">${user.email ? user.email : "Mail Not Found"}</span>
                                     
                                 </li>
                                 
@@ -84,7 +84,7 @@ class UI {
                             </button>
 
                             <button class="btn btn-info">
-                                Forks  <span class="badge badge-light" id ="repoFork">${repo.forks_count}</span>
+                                Forks   <span class="badge badge-light" id ="repoFork">${repo.forks_count}</span>
                             </button>
                     
                         </div>
@@ -94,7 +94,6 @@ class UI {
 
             })
         }
-
         addSearchedUserToUI(username) {
             let users = Storage.getSearchedUsersFromStorage();
             if (users.indexOf(username) === -1) {
